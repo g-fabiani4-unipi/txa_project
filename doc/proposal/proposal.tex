@@ -1,0 +1,94 @@
+\documentclass[a4paper, 10pt, twocolumn, DIV=calc]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{arsclassica}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+
+\usepackage{geometry}
+\geometry{top=1cm,bottom=1.5cm,left=2.5cm,right=2.5cm,includehead,includefoot}
+\setlength{\columnsep}{7mm}
+
+
+\usepackage{csquotes}
+\usepackage[style=numeric,backend=biber]{biblatex}
+\addbibresource{references.bib}
+
+\begin{document}
+\author{Group 4}
+\title{Hate speech detection in Italian tweets}
+
+\maketitle
+\section{Motivation}
+Although hate speech is a phenomenon that existed long before the advent of the Web, communication via the Internet has allowed this phenomenon to spread and develop with peculiar characteristics tied to the nature of online media, such as anonymity on one side, and velocity and breadth of proliferation on the other. Given the relevance and dangerous potential of this social phenomenon, there is widespread interest in recognizing and detecting hate speech online, also on an institutional level.
+
+In May 2016 the European Commission, citing the chilling effect of hate speech on the democratic discourse on online platforms,  agreed with Facebook, Microsoft, Twitter and YouTube on a ``Code of conduct on countering illegal hate speech online'' \cite{european_commission_code}.
+In this document the major IT Companies made a public commitment to:
+\begin{enumerate}
+  \item Have in place clear and effective processes to review notifications regarding hate speech on their platforms;
+  \item review the majority of valid notifications of hate speech in less than 24 hours.   
+\end{enumerate}
+
+The most recent evaluation campaign of the Code of Conduct \cite{reynders_factsheet} assessed in general a worse performance of the IT Companies especially in this last respect (only 64.4\% of notifications were reviewed in less than 24 hours), confirming a troubling downward trend already observed in 2021. 
+
+Accurate, precise and efficient automated systems of hate speech detection are necessary for combating the phenomenon both with proactive action and in the process of reviewing user notification of occurrences of such violations.
+
+Moreover, such systems should prove valuable for providing the data that is still needed to investigate the ecosystem of hate speech online and the magnitude of the phenomenon.
+\section{Project goal}
+The goal of this project is to identify characteristics in the text which allow for the detection of Italian tweets containing hate speech (this category is meant to include expressions of racism, xenophobia and terrorist propaganda).
+So, we can define this task as a binary classification. 
+
+A secondary goal is to evaluate how insights obtained by our model can generalize across textual domains. In order to do that, we would like to test our model, trained exclusively on tweets, against Italian newspaper headlines.
+
+Since tweets and newspapers' headlines exhibit very different stylistic and semantic characteristics (although they are both characterized by brevity), we expect overall a worse performance for the out-of-domain task.
+Nevertheless, we expect that the process will provide us with insights into the challenges associated with this transfer.
+
+The project is based on the main task of the HaSpeeDe 2 shared task presented at EVALITA2020 \cite{haspeede2}.
+
+\section{Available data}
+We will use the datasets made available\footnote{\url{https://github.com/msang/haspeede/tree/master/2020}} by the organizers of the Evalita 2020 shared task HaSpeeDe 2 \cite{haspeede2}.
+
+The train set consists in 6839 Italian Tweets posted between October 2016 and May 2019 annotated for presence of hate speech.
+The test set includes both a corpus of 1263 Italian Tweets posted between January and May 2019 and a corpus of 500 Italian newspapers' headlines retrieved between October 2017 and February 2018 from the online editions of \emph{La Stampa}, \emph{La Repubblica}, \emph{Il Giornale} and \emph{Liberoquotidiano}.
+This second corpus will allow us to appraise how well the application generalizes across textual domains.
+
+Table \ref{tbl:class_composition} shows the distribution of hate speech labels in the training set and in each of the test sets.
+
+\begin{table}
+\caption{Distribution of Hate Speech labels.}
+    \begin{tabular}{lrrr}
+        \toprule
+        & \textsc{HS} & \textsc{Not HS} & \textsc{Total} \\
+        \midrule
+        Train & 2766 & 4073 & 6839 \\
+        \midrule
+        Test Tweets & 622 & 641 & 1263 \\
+        Test News & 181 & 319 & 500 \\
+        \bottomrule
+    \end{tabular}
+    \label{tbl:class_composition}
+\end{table}
+
+The data sets are available in a TSV format and contain three features for each record:
+\begin{itemize}
+    \item{\texttt{id}:} numeric identifier for each document
+    \item{\texttt{text}:} the text of the document
+    \item{\texttt{hs}:} boolean value, whether the tweet contains HS (1) or not (0).
+    \item{\texttt{stereotype}:} boolean value, whether the tweet contains a stereotype (1) or not (0) [might not be useful].
+\end{itemize}
+
+\section{Implementation and evaluation (tentative)}
+\begin{itemize}
+    \item Binary classification task (whether the document contains hate speech or not);
+    \item Possible models [might change depending on what we’ll cover on the course/what proves to be more interesting]: SVM (possibly testing different representations of the text as input: e.g. n-grams vs word2vec embeddings vs stylistic features), and fine-tuning pre-trained transformers such as DistilBERT \cite{distilbert}.
+    The objective is to train multiple models using different text representations in order to enable a comparative analysis of two aspects: how the performance of a specific model is impacted by different representations, and the overall performance of different models.
+    
+    \item Evaluation metrics: Accuracy, Precision, Recall, F1-score.
+    For our evaluation we will make reference to the baseline proposed by the organizers of the shared task.
+
+\end{itemize}
+
+\printbibliography{}
+
+\end{document}
