@@ -13,7 +13,7 @@ Remember to name all files according to their content or function.
 ### Clone this repository
 
 ```
-git clone
+git clone https://github.com/g-fabiani4-unipi/txa_project.git
 cd txa_project
 ```
 
