@@ -5,7 +5,6 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 
-
 \usepackage{geometry}
 \geometry{top=1cm,bottom=1.5cm,left=2.5cm,right=2.5cm,includehead,includefoot}
 \setlength{\columnsep}{7mm}
@@ -78,6 +77,17 @@ The data sets are available in a TSV format and contain three features for each 
     \item{\texttt{stereotype}:} boolean value, whether the tweet contains a stereotype (1) or not (0) [might not be useful].
 \end{itemize}
 
+We will also make use of the Italian Twitter embeddings \cite{italian_twitter_embeddings} lexicon computed by ItaliaNLP Lab on a corpus of 50,000,000 tweets using the word2vec\footnote{\url{http://code.google.com/p/word2vec/}} toolkit.
+This lexicon consists of embeddings of 128 features for 1,188,949 tokens that were computed with the CBOW model with a symmetric context window of 5 tokens.
+
+The embeddings were made available\footnote{\url{http://www.italianlp.it/download-italian-twitter-embeddings/}} by the ItaliaNLP Lab as a SQLite database containing a single table \texttt{store} with 130 columns:
+\begin{itemize}
+    \item \texttt{key}, representing the token;
+    \item one column for each dimension of the embedding;
+    \item \texttt{ranking} storing the frequency rank of the token.
+\end{itemize}
+
+
 \section{Implementation and evaluation (tentative)}
 \begin{itemize}
     \item Binary classification task (whether the document contains hate speech or not);
@@ -85,9 +95,14 @@ The data sets are available in a TSV format and contain three features for each 
     The objective is to train multiple models using different text representations in order to enable a comparative analysis of two aspects: how the performance of a specific model is impacted by different representations, and the overall performance of different models.
     
     \item Evaluation metrics: Accuracy, Precision, Recall, F1-score.
-    For our evaluation we will make reference to the baseline proposed by the organizers of the shared task.
-
 \end{itemize}
+
+For our evaluation we will make reference to two baselines proposed by the organizers of the shared task:
+
+\begin{enumerate}
+    \item A classifier returning the most frequent class, which obtained a Macro-F1 0.3366 on the twitter test set and of 0.3894 on the news test set:
+    \item A Linear SVM using TF-IDF of unigrams and 2-5 char-grams, which obtained a Macro-F1 of 0.7212  for the twitter test set and of 0.621 for the news test set.
+\end{enumerate}
 
 \printbibliography{}
 
