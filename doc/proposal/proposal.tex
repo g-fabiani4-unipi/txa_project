@@ -69,13 +69,15 @@ Table \ref{tbl:class_composition} shows the distribution of hate speech labels i
     \label{tbl:class_composition}
 \end{table}
 
-The data sets are available in a TSV format and contain three features for each record:
+The data sets are available in TSV format and contain three features for each record:
 \begin{itemize}
     \item{\texttt{id}:} numeric identifier for each document
-    \item{\texttt{text}:} the text of the document
-    \item{\texttt{hs}:} boolean value, whether the tweet contains HS (1) or not (0).
-    \item{\texttt{stereotype}:} boolean value, whether the tweet contains a stereotype (1) or not (0) [might not be useful].
+    \item{\texttt{text}:} the body of the document
+    \item{\texttt{hs}:} boolean value, whether the document contains HS (1) or not (0).
+    \item{\texttt{stereotype}:} boolean value, whether the document contains a stereotype (1) or not (0) [might not be useful].
 \end{itemize}
+
+As part of the preprocessing performed by the organizers of the task, mentions and URLs recurring in the original documents were replaced with \texttt{@user} and \texttt{URL} placeholders.
 
 We will also make use of the Italian Twitter embeddings \cite{italian_twitter_embeddings} lexicon computed by ItaliaNLP Lab on a corpus of 50,000,000 tweets using the word2vec\footnote{\url{http://code.google.com/p/word2vec/}} toolkit.
 This lexicon consists of embeddings of 128 features for 1,188,949 tokens that were computed with the CBOW model with a symmetric context window of 5 tokens.
