@@ -442,3 +442,6 @@ ui-tests/playwright-report
 .pnp.*
 ui-tests/.yarn/*
 ui-tests/.pnp.*
+
+#  Do not track word embeddings databases
+*.sqlite
