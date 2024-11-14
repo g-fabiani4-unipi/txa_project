@@ -8,6 +8,8 @@
 
 Remember to name all files according to their content or function.
 
+> [!NOTE]
+> Since the embeddings database is very large, it is not tracked in the repository (neither should it be tracked since it cannot be distributed). You can dowload it from [http://www.italianlp.it/download-italian-twitter-embeddings/](http://www.italianlp.it/download-italian-twitter-embeddings/) after filling out the form and put the `.sqlite` file in the `data` directory.
 
 ## Installation
 ### Clone this repository
