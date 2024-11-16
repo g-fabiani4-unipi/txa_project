@@ -48,3 +48,23 @@ You can also launch the rich web-based tool for diff visualization with
 ```
 nbdiff-web [<commit> [<commit>]] [<path>]
 ```
+
+## Contributing
+Make sure you are up to date with the latest version of the repository and pull it from the origin.
+```
+git fetch
+git pull
+```
+
+Create a new branch and make your commits there.
+```
+git branch new_branch_name
+git checkout new_branch_name
+```
+When you are finished, push to the remote branch
+
+```
+git push origin new_branch_name
+```
+
+Now you should be able to open a pull request on github.
