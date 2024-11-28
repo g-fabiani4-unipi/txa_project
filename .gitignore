@@ -445,3 +445,6 @@ ui-tests/.pnp.*
 
 #  Do not track word embeddings databases
 *.sqlite
+
+# Do not track the enviroment
+venv/
