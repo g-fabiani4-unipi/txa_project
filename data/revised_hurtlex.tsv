@@ -383,12 +383,12 @@ pos	category	lemma	offensiveness_score
 1 aggettivo	svp; is; dmc;	avidi	2.381360987592938
 3 sostantivo	svp; is;	avidità	2.381360987592938
 1 aggettivo	svp; is; dmc;	avido	2.381360987592938
-3 sostantivo	an; rapace	avoltore	2.7329238689507163
-3 sostantivo	an; rapace	avoltori	2.7329238689507163
+3 sostantivo	an;	avoltore	2.7329238689507163
+3 sostantivo	an;	avoltori	2.7329238689507163
 1 aggettivo	cds	avvilente	2.453102295900596
 1 aggettivo	cds	avvilenti	2.453102295900596
-3 sostantivo	an; rapace	avvoltoi	2.7329238689507163
-3 sostantivo	an; rapace	avvoltoio	2.7329238689507163
+3 sostantivo	an;	avvoltoi	2.7329238689507163
+3 sostantivo	an;	avvoltoio	2.7329238689507163
 3 sostantivo	dmc;	azzeccagarbugli	1.8112067228677788
 2 sostantivo, aggettivo	ddp; cds; ps;	babbalea	1.6664078230260877
 2 sostantivo, aggettivo	ddp; cds; ps;	babbalee	1.6664078230260877
@@ -1114,10 +1114,10 @@ pos	category	lemma	offensiveness_score
 1 aggettivo	cds;	cavilloso	1.286758544128453
 3 sostantivo	an; asm; asf; ddp;	cavolata	1.1128667195042454
 3 sostantivo	an; asm; asf; ddp;	cavolate	1.1128667195042454
-3 sostantivo	or; vegetale	cavolfiore	1.0502781557242067
-3 sostantivo	or; vegetale	cavolfiori	1.0502781557242067
-3 sostantivo	or; vegetale	cavoli	1.0502781557242067
-3 sostantivo	or; vegetale	cavolo	1.0502781557242067
+3 sostantivo	or;	cavolfiore	1.0502781557242067
+3 sostantivo	or;	cavolfiori	1.0502781557242067
+3 sostantivo	or;	cavoli	1.0502781557242067
+3 sostantivo	or;	cavolo	1.0502781557242067
 3 sostantivo	dmc;	cazzara	2.0749124104216756
 3 sostantivo	dmc;	cazzare	2.0749124104216756
 3 sostantivo	dmc;	cazzari	2.0749124104216756
@@ -1293,8 +1293,8 @@ pos	category	lemma	offensiveness_score
 3 sostantivo	qas;	cleptoparassitismo	3.2474037304569374
 1 aggettivo	om;	clitorista	4.731971447288265
 1 aggettivo	om;	clitoriste	4.731971447288265
-3 sostantivo	cds; cloaca	2.4935154686718732
-3 sostantivo	cds; cloaca	cloache	2.4935154686718732
+3 sostantivo	cds;	cloaca 2.4935154686718732
+3 sostantivo	cds;	cloache	2.4935154686718732
 3 sostantivo	dmc;	clochard	2.842482660227453
 3 sostantivo	dmc;	clown	2.2299902463228896
 2 sostantivo, aggettivo	ddp;	coatta	2.102878075735924
@@ -1484,8 +1484,8 @@ pos	category	lemma	offensiveness_score
 4 verbo	cds	crocifiggilo	5
 3 sostantivo	re; min;	crocifissione	3.0589508226895457
 3 sostantivo	re; min;	crocifissioni	3.0589508226895457
-3 sostantivo	cds: ddf;	crosta	1.0502781557242067
-3 sostantivo	cds: ddf;	croste	1.0502781557242067
+3 sostantivo	cds; ddf;	crosta	1.0502781557242067
+3 sostantivo	cds; ddf;	croste	1.0502781557242067
 3 sostantivo	ps	crucca	1.7529224818569897
 3 sostantivo	ps	crucche	1.7529224818569897
 3 sostantivo	ps	crucchi	1.7529224818569897
@@ -1771,10 +1771,10 @@ pos	category	lemma	offensiveness_score
 2 sostantivo, aggettivo	is	diseredate	2.063825427286746
 2 sostantivo, aggettivo	is	diseredati	2.063825427286746
 2 sostantivo, aggettivo	is	diseredato	2.063825427286746
-3 sostantivo	dmc; spia	disertore	2.968825581285172
-3 sostantivo	dmc; spia	disertori	2.968825581285172
-3 sostantivo	dmc; spia	disertrice	2.968825581285172
-3 sostantivo	dmc; spia	disertrici	2.968825581285172
+3 sostantivo	dmc;	disertore	2.968825581285172
+3 sostantivo	dmc;	disertori	2.968825581285172
+3 sostantivo	dmc;	disertrice	2.968825581285172
+3 sostantivo	dmc;	disertrici	2.968825581285172
 3 sostantivo	cds; is; re; dmc	disgraziata	2.454464344281675
 3 sostantivo	cds; is; re; dmc	disgraziate	2.454464344281675
 3 sostantivo	cds; is; re; dmc	disgraziati	2.454464344281675
@@ -1894,8 +1894,8 @@ pos	category	lemma	offensiveness_score
 2 sostantivo, aggettivo	cds;	drogate	3.301672448513716
 2 sostantivo, aggettivo	cds;	drogati	3.301672448513716
 2 sostantivo, aggettivo	cds;	drogato	3.301672448513716
-2 sostantivo, aggettivo	ddp; cds ps;	ebete	2.919239928825486
-2 sostantivo, aggettivo	ddp; cds ps;	ebeti	2.919239928825486
+2 sostantivo, aggettivo	ddp; cds; ps;	ebete	2.919239928825486
+2 sostantivo, aggettivo	ddp; cds; ps;	ebeti	2.919239928825486
 3 sostantivo	qas; dmc;	ectoparassita	3.2474037304569374
 3 sostantivo	qas; dmc;	ectoparassiti	3.2474037304569374
 2 sostantivo, aggettivo	dmc; cds;	egocentrica	1.6358829600341631
@@ -2259,10 +2259,10 @@ pos	category	lemma	offensiveness_score
 1 aggettivo	ddf; dmc;	flemmatico	1.43589373630117
 3 sostantivo	om;	fnoc	4.731971447288265
 3 sostantivo	om;	fnoi	4.731971447288265
-3 sostantivo	cds; cloaca	fogna	2.8146802525081727
-3 sostantivo	cds; cloaca	fognatura	2.8146802525081727
-3 sostantivo	cds; cloaca	fognature	2.8146802525081727
-3 sostantivo	cds; cloaca	fogne	2.8146802525081727
+3 sostantivo	cds;	fogna	2.8146802525081727
+3 sostantivo	cds;	fognatura	2.8146802525081727
+3 sostantivo	cds;	fognature	2.8146802525081727
+3 sostantivo	cds;	fogne	2.8146802525081727
 1 aggettivo	ddp	folle	1.76798096473562
 1 aggettivo	ddp	folli	1.76798096473562
 3 sostantivo	ddp	follia	1.76798096473562
@@ -3288,7 +3288,7 @@ pos	category	lemma	offensiveness_score
 2 sostantivo, aggettivo	svp;	iroso	1.7949124350948371
 1 aggettivo	qas;	irragionevole	1.9597928183289257
 1 aggettivo	qas;	irragionevoli	1.9597928183289257
-3 sostantivo	qas; illogico	irrazionalità	1.9597928183289257
+3 sostantivo	qas;	irrazionalità	1.9597928183289257
 1 aggettivo	cds	irrecuperabile	2.8590784329678343
 1 aggettivo	cds	irrecuperabili	2.8590784329678343
 1 aggettivo	qas	irregolare	2.6436069901103774
@@ -3379,8 +3379,8 @@ pos	category	lemma	offensiveness_score
 1 aggettivo	svp	lascivo	1.9784036315957707
 2 sostantivo, aggettivo	cds	latitante	2.3061934850692607
 2 sostantivo, aggettivo	cds	latitanti	2.3061934850692607
-3 sostantivo	cds; cloaca	latrina	3.660982529905453
-3 sostantivo	cds; cloaca	latrine	3.660982529905453
+3 sostantivo	cds;	latrina	3.660982529905453
+3 sostantivo	cds;	latrine	3.660982529905453
 3 sostantivo	re; cds;	latrocini	3.265526741676701
 3 sostantivo	re; cds;	latrocinio	3.265526741676701
 2 sostantivo, aggettivo	cds;	lattante	2.0070680066742552
