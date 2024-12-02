@@ -1,0 +1,3 @@
+model,description,accuracy_macro,precision_macro,recall_macro,f1_macro,f1_pos
+baseline_svc,Linear SVC with TF-IDF of word unigrams and char 2-5-grams,0.765 (0.005),0.757 (0.005),0.754 (0.008),0.755 (0.007),0.706 (0.012)
+baseline_mfc,Dummy classifier with most frequent class strategy,0.595 (0.0),0.298 (0.0),0.5 (0.0),0.373 (0.0),0.0 (0.0)
