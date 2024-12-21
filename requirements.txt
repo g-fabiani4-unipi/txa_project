@@ -101,9 +101,12 @@ packaging==24.1
 pandas==2.2.3
 pandocfilters==1.5.1
 parso==0.8.4
+patsy==1.0.1
 pexpect==4.9.0
 pillow==11.0.0
 platformdirs==4.3.6
+plotly==5.24.1
+plotly-express==0.4.1
 preshed==3.0.9
 prometheus_client==0.21.0
 prompt_toolkit==3.0.48
@@ -148,7 +151,9 @@ spacy-loggers==1.0.5
 srsly==2.4.8
 stack-data==0.6.3
 stanza==1.9.2
+statsmodels==0.14.4
 sympy==1.13.1
+tenacity==9.0.0
 terminado==0.18.1
 textual==0.52.1
 thinc==8.3.2
