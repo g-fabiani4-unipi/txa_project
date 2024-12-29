@@ -179,6 +179,7 @@ tensorflow==2.18.0
 termcolor==2.5.0
 terminado==0.18.1
 textual==0.52.1
+tf_keras==2.18.0
 thinc==8.3.2
 threadpoolctl==3.5.0
 tifffile==2024.12.12
