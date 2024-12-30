@@ -98,6 +98,83 @@ Finally we used two resources for indentifying offensive words: a lexicon of 500
 \input{emanuele}
 
 \section{Results}
+
+Table \ref{tab:models_performance} reports the performance of tested models in terms of Macro-F1, comparing them to two baselines provided by the organizers of the shared task:
+
+\begin{itemize}
+    \item A classifier returning the most frequent class (Baseline\_MFC);
+    \item A Linear SVM using TF-IDF of unigrams and 2-5 char-grams (Baseline\_SVC).
+\end{itemize}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lll}
+        \toprule
+        Model & Twitter & News\\
+        \midrule
+        Italian BERT fine-tuned & 0.7696 & 0.6706\\
+        AlBERTo fine-tuned & 0.7616 & 0.6838\\
+        LGB & 0.7463 & 0.6656\\
+        LGB w/o style & 0.7298 & 0.6709\\
+        SVC AlBERTo embeddings & 0.729 & 0.659\\
+        \textbf{Baseline\_SVC} & 0.7212 & 0.621\\
+        Logistic Regression Ngrams & 0.4004 & 0.5093\\
+        \textbf{Baseline\_MFC} & 0.3366 & 0.3894\\
+        \bottomrule
+    \end{tabular}
+    \caption{Macro-F1 of models tested on both test sets.}
+    \label{tab:models_performance}
+\end{table}
+
+\subsection{Logistic Regression with TF-IDF of Ngrams}
+
+Our Logistic Regression achieved a macro-average F1 score of 0.4004 on the tweets dataset and 0.5093 on the headlines dataset. In both cases, the low F1 score can be attributed to the low recall for class 1.
+
+The results obtained from only the n-grams were poor and the apparently better performance on the headlines dataset is probably due to the fact that the classes are better balanced in this dataset. 
+
+\subsection{Linear SVC with AlBERTo sentence embeddings}
+
+\begin{table}[h]
+    \small
+    \centering
+    \begin{tabular}{lcccc}
+        \toprule
+        & \textbf{precision} & \textbf{recall} & \textbf{f1-score} & \textbf{support} \\
+        \midrule
+        0 & 0.741 & 0.718 & 0.729 & 641 \\
+        1 & 0.718 & 0.741 & 0.729 & 622 \\
+        \midrule
+        \textbf{accuracy} & & & 0.729 & 1263 \\
+        \textbf{macro avg} & 0.729 & 0.729 & 0.729 & 1263 \\
+        \textbf{weighted avg} & 0.730 & 0.729 & 0.729 & 1263 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Classification Report on Tweets test set}
+    \label{tab:classification_report_svm_alberto_tweets}
+\end{table}
+
+\begin{table}[h]
+    \small
+    \centering
+    \begin{tabular}{lcccc}
+        \toprule
+        & \textbf{precision} & \textbf{recall} & \textbf{f1-score} & \textbf{support} \\
+        \midrule
+        0 & 0.730 & 0.881 & 0.798 & 319 \\
+        1 & 0.670 & 0.425 & 0.520 & 181 \\
+        \midrule
+        \textbf{accuracy} & & & 0.716 & 500 \\
+        \textbf{macro avg} & 0.700 & 0.653 & 0.659 & 500 \\
+        \textbf{weighted avg} & 0.708 & 0.716 & 0.698 & 500 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Classification Report on News headlines test set}
+    \label{tab:classification_report_svm_alberto_news}
+\end{table}
+The macro F1 drops from 0.747 observed in validation to 0.729 for the in-domain task, but all metrics are balanced between the two classes. The model seems to be able to generalize well on tweets and has a stable performance.
+
+As expected, the performance drop is more significant for the out-of-domain task, with a macro F1 of 0.659. The model performs worse for class 1, especially with respect to F1 and recall, which means that it struggles with detecting hate speech in news headlines.
+
 \section{Discussion}
 \section{Conclusion}
 

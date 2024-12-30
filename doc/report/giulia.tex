@@ -40,3 +40,7 @@ Although the distributions are overlapping, it is possible to discern clear tren
     \caption{Comparat{}ive stylistic analysis of tweets and scraped headlines.}
     \label{fig:style}
 \end{figure}
+
+Moreover, the lemmatized text was used for the identification of offensive words from the HurtLex lexicon in the documents: we computed a global offensiveness score for each document adding together the scores of all offensive words recurring in the text.
+We then normalized this score by text length in order to avoid overestimating the offensiveness of longer documents.
+The necessity of this ulterior step was made apparent when we noticed that the scraped newspapers' headlines tended to be shorter and yield lower non normalized offensiveness scores than tweets.
