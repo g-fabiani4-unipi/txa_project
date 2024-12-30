@@ -8,7 +8,7 @@ We automatically annotated the documents using a \emph{Stanza} \cite{stanza} pip
 \end{itemize}
 
 Before this step we preprocessed the text in order to remove mentions, urls and normalize the punctuation: in particular sequences of multiple full stops were reduced to one full stop, since they were creating issues with the sentence tokenization.
-As for hashtags, since often single words hashtags are integrated in the syntax of the sentence we decided to remove only the hash symbol and preserve the textual part of the hashtags.
+As for hashtags, since often single words hashtags are integrated in the syntax of the sentence we decided to remove only the hash mark and preserve the textual part of the hashtags.
 
 Our choice of using Stanza was predicated on the possibility of using a combined model based on several different treebanks for the Italian language.
 This allowed us to get a better coverage of the language, which is particularly important when working on a non standard variety like tweets or in general computer mediated writing.
@@ -35,12 +35,15 @@ As expected, social media properties like the number of mentions, hashtags, URLs
 Figure \ref{fig:style} shows the distributions of several linguistic profiling features (document length in tokens, average sentence length, distribution of punctuation, distribution of proper nouns and Type/Token Ratio by form) for tweets and headlines.
 Although the distributions are overlapping, it is possible to discern clear trends that confirm the results of the feature importance analysis.
 
+As we have seen, tweets and newspapers' headlines differ significantly in terms of stylistic features.
+Therefore whichever stylistic features may prove useful for the detection of hate speech in tweets, they are unlikely to yield good results on such a different textual domain.
+
 \begin{figure}
     \includegraphics[width=\columnwidth]{../../results/images/style.png}
     \caption{Comparat{}ive stylistic analysis of tweets and scraped headlines.}
     \label{fig:style}
 \end{figure}
 
-Moreover, the lemmatized text was used for the identification of offensive words from the HurtLex lexicon in the documents: we computed a global offensiveness score for each document adding together the scores of all offensive words recurring in the text.
+The lemmatized text was also used for the identification of offensive words from the HurtLex lexicon in the documents: we computed a global offensiveness score for each document adding together the scores of all offensive words recurring in the text.
 We then normalized this score by text length in order to avoid overestimating the offensiveness of longer documents.
 The necessity of this ulterior step was made apparent when we noticed that the scraped newspapers' headlines tended to be shorter and yield lower non normalized offensiveness scores than tweets.

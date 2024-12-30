@@ -177,8 +177,14 @@ The macro F1 drops from 0.747 observed in validation to 0.729 for the in-domain 
 
 As expected, the performance drop is more significant for the out-of-domain task, with a macro F1 of 0.659. The model performs worse for class 1, especially with respect to F1 and recall, which means that it struggles with detecting hate speech in news headlines.
 
+\subsection{Light-GBM}
+Except for the fine-tuning of the two BERT models, Light-GBM obtained the best performance on both test sets, clearing both baselines.
+The model trained on all features obtained a macro F1 of 0.7463 for the in-domain task and of 0.6656 on the cross-domain task.
+As expected, excluding the linguistic profiling features yielded a better performance for the cross-domain task (0.6709), but lowered significantly the macro F1 in the in-domain task (0.7298).
+
 \input{BERT_results}
 \section{Discussion}
+
 \section{Conclusion}
 
 \printbibliography{}
