@@ -4,18 +4,19 @@ Among the approaches we decided to implement, we opted for an SVM classifier tra
 
 We first tested three different representations based on the same lexicon of  precomputed static word embeddings, the Italian Twitter Embeddings \cite{italian_twitter_embeddings} by the ItaliaNLP Lab, differing by method of aggregation. 
 
-In order to do so, we loaded the embeddings and our preprocessed and annotated training documents, which we further normalized using the functions provided by the ItaliaNLP lab. We could then build the vocabulary of the training set using the embeddings. Given the characteristics of this type of non-standard language, in particular the high level of both inter and intrapersonal variation, we expected some out-of-vocabulary words, which ended up being 2703 out of 22709, meaning that almost 12\% of words didn't have an embedding representation. These words are mostly words that haven't been correctly tokenized (especially multi-words hashtags), sequences of emojis, and typos. Had we used non-specialized embeddings, we assume that this coverage would have been significantly lower, posing an important issue for the model training.
+In order to do so, we loaded the embeddings and our preprocessed and annotated training documents, which we further normalized using the functions provided by the ItaliaNLP lab. We could then build the vocabulary of the training set using the embeddings.
+Given the characteristics of this type of non-standard language, in particular the high level of both interpersonal and intrapersonal variation, we expected some out-of-vocabulary words, which ended up being 2703 out of 22709, meaning that almost 12\% of words did not have an embedding representation. These words are mostly words that haven't been correctly tokenized (especially multi-words hashtags), sequences of emojis, and typos. Had we used non-specialized embeddings, we assume that this coverage would have been significantly lower, posing an important issue for the model's training.
 
-Using a 5-fold cross-validation process and comparing the resulting macro-averaged F1 score, we determined the best performing model to be the one representing each tweet with the average of all its word embeddings. It performed better than using the aggregation of only lexically-full tokens (nouns, verbs and adjectives), both by mean and by concatenation of the mean vectors for the three aforementioned grammatical categories.
+Using a 5-fold cross-validation process and comparing the resulting macro-averaged F1 scores, we determined the best performing model to be the one representing each tweet with the average of all its word embeddings. It performed better than using the aggregation of only lexically-full tokens (nouns, verbs and adjectives), both by mean and by concatenation of the mean vectors for the three aforementioned grammatical categories (cf. Table \ref{tbl:svm_f1_static_embs_aggregations}).
 
 \begin{table}
     \begin{tabular}{rlr}
         \toprule
         & \textsc{Features} & \textsc{Macro F1} \\
         \midrule
-        1 & Avg over all tokens & 0.744 \\
-        2 & Avg over all N, V and Adj & 0.726 \\
-        3 & Concat. of mean vects (N, V, Adj) & 0.717 \\
+        1 & Avg over all tokens & 0.7443 \\
+        2 & Avg over all N, V and Adj & 0.7255 \\
+        3 & Concat. of mean vects (N, V, Adj) & 0.7175 \\
         \bottomrule
     \end{tabular}
     \caption{SVM classifiers based on different word embeddings aggregations (5-fold cross-validation).}
@@ -34,7 +35,7 @@ For both models, we tested two methods of \textit{pooling} the tokens' embedding
     \item \textbf{Mean Pooling with Sentence Transformers}: we used a Sentence Transformer, a model that generates a single fixed-length vector representation for an entire sequence. It does so via \textit{mean pooling}, i.e. by computing the mean of all tokens' embeddings in the last hidden layer.
 \end{enumerate}
 
-The Italian BERT yielded worse performances, which can be explained by the fact that it is a general model that has not been trained for this specific domain. AlBERTo, on the other hand, provided better results, with the SVM model based on its mean pooled embeddings having the highest mean macro F1 score.
+The Italian BERT yielded worse performances (cf. Table \ref{tbl:svm_f1_contextual_embs_pooling}), which can be explained by the fact that it is a general model that has not been trained for this specific domain. AlBERTo, on the other hand, provided better results, with the SVM model based on its mean pooled embeddings having the highest mean macro F1 score (0.7465).
     
 \begin{table}
 \centering
@@ -42,8 +43,8 @@ The Italian BERT yielded worse performances, which can be explained by the fact 
         \toprule
         & \textsc{[CLS]} & \textsc{Mean Pooling} \\
         \midrule
-        Italian BERT & 0.689 & 0.725 \\
-        AlBERTo & 0.741 & 0.747 \\
+        Italian BERT & 0.6814 & 0.7242 \\
+        AlBERTo & 0.7439 & 0.7465 \\
         \bottomrule
     \end{tabular}
     \caption{Mean macro F1 score of SVM classifiers based on different contextual embeddings' poolings (5-fold cross-validation).}
