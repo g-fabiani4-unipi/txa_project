@@ -1,4 +1,4 @@
-\documentclass[a4paper, 10pt, twocolumn, DIV=calc]{scrartcl}
+\documentclass[a4paper, 9pt, twocolumn, DIV=calc]{scrartcl}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{arsclassica}
@@ -8,7 +8,6 @@
 \usepackage{geometry}
 \geometry{top=1cm,bottom=1.5cm,left=2.5cm,right=2.5cm,includehead,includefoot}
 \setlength{\columnsep}{7mm}
-
 
 \usepackage{csquotes}
 \usepackage[style=numeric,backend=biber]{biblatex}
@@ -20,7 +19,7 @@
 \date{}
 
 \maketitle
-\section{Introducion}
+\section{Introduction}
 \subsection{Motivation}
 Although hate speech is a phenomenon that existed long before the advent of the Web, communication via the Internet has allowed this phenomenon to spread and develop with peculiar characteristics tied to the nature of online media, such as anonymity on one side, and velocity and breadth of proliferation on the other. Given the relevance and dangerous potential of this social phenomenon, there is widespread interest in recognizing and detecting hate speech online, also on an institutional level.
 
@@ -40,7 +39,7 @@ Moreover, such systems should prove valuable for providing the data that is stil
 The goal of this project is to identify characteristics in the text which allow for the detection of Italian tweets containing hate speech (this category is meant to include expressions of racism, xenophobia and terrorist propaganda).
 So, we can define this task as a binary classification.
 
-A secondary goal is to evaluate how insights obtained by our model can generalize across textual domains. In order to do that, we would like to test our model, trained exclusively on tweets, against Italian newspaper headlines.
+A secondary goal was to evaluate how insights obtained by our model can generalize across textual domains. In order to do that, tested our models, trained exclusively on tweets, against Italian newspaper headlines.
 
 The project is based on the main task of the HaSpeeDe 2 shared task presented at EVALITA2020 \cite{haspeede2}.
 
@@ -50,12 +49,12 @@ We used the datasets made available\footnote{\url{https://github.com/msang/haspe
 
 The train set consists in 6839 Italian Tweets posted between October 2016 and May 2019 annotated for presence of hate speech.
 The test set includes both a corpus of 1263 Italian Tweets posted between January and May 2019 and a corpus of 500 Italian newspapers' headlines retrieved between October 2017 and February 2018 from the online editions of \emph{La Stampa}, \emph{La Repubblica}, \emph{Il Giornale} and \emph{Liberoquotidiano}.
-This second corpus will allow us to appraise how well the application generalizes across textual domains.
+This second corpus allowed us to appraise how well the application generalizes across textual domains.
 
 Table \ref{tbl:class_composition} shows the distribution of hate speech labels in the training set and in each of the test sets.
 
 \begin{table}
-\caption{Distribution of Hate Speech labels.}
+\centering
     \begin{tabular}{lrrr}
         \toprule
         & \textsc{HS} & \textsc{Not HS} & \textsc{Total} \\
@@ -66,6 +65,7 @@ Table \ref{tbl:class_composition} shows the distribution of hate speech labels i
         Test News & 181 & 319 & 500 \\
         \bottomrule
     \end{tabular}
+    \caption{Distribution of Hate Speech labels.}
     \label{tbl:class_composition}
 \end{table}
 
@@ -74,12 +74,12 @@ The data sets are available in TSV format and contain three features for each re
     \item{\texttt{id}:} numeric identifier for each document
     \item{\texttt{text}:} the body of the document
     \item{\texttt{hs}:} boolean value, whether the document contains HS (1) or not (0).
-    \item{\texttt{stereotype}:} boolean value, whether the document contains a stereotype (1) or not (0) [might not be useful].
+    \item{\texttt{stereotype}:} boolean value, whether the document contains a stereotype (1) or not (0).
 \end{itemize}
 
 As part of the preprocessing performed by the organizers of the task, mentions and URLs recurring in the original documents were replaced with \texttt{@user} and \texttt{URL} placeholders.
 
-We will also make use of the Italian Twitter embeddings \cite{italian_twitter_embeddings} lexicon computed by ItaliaNLP Lab on a corpus of 50,000,000 tweets using the word2vec\footnote{\url{http://code.google.com/p/word2vec/}} toolkit.
+In order to model the semantic properties of the documents, we used the Italian Twitter embeddings \cite{italian_twitter_embeddings} lexicon computed by ItaliaNLP Lab on a corpus of 50,000,000 tweets using the word2vec\footnote{\url{http://code.google.com/p/word2vec/}} toolkit.
 This lexicon consists of embeddings of 128 features for 1,188,949 tokens that were computed with the CBOW model with a symmetric context window of 5 tokens.
 
 The embeddings were made available\footnote{\url{http://www.italianlp.it/download-italian-twitter-embeddings/}} by the ItaliaNLP Lab as a SQLite database containing a single table \texttt{store} with 130 columns:
@@ -88,6 +88,8 @@ The embeddings were made available\footnote{\url{http://www.italianlp.it/downloa
     \item one column for each dimension of the embedding;
     \item \texttt{ranking} storing the frequency rank of the token.
 \end{itemize}
+
+Finally we used two resources for indentifying offensive words: a lexicon of 500 bad words for the Italian language made available on GitHub\footnote{\url{https://github.com/napolux/paroleitaliane/tree/master/paroleitaliane}} and the Italian section of the Revised HurtLex lexicon \cite{hurtlex} consisting in 7920 words. In the Revised HurtLex lexicon, each headword is annotated with an offensiveness level score derived from ratings provided by a large number of annotators. This resource was made available from the authors in TSV format\footnote{\url{https://github.com/valeriobasile/hurtlex/blob/master/revised_hurtlex/IT/revised_hurtlex.tsv}} and was revised by us in order to solve some data quality issues.
 
 \input{giulia}
 \input{marco}

@@ -13,8 +13,7 @@ At this stage, the dataset includes a new column, \texttt{text\textunderscore pr
 
 Subsequently, all text is converted to lowercase, mentions, URLs, and numbers are removed, and the tweets are tokenized using \emph{Stanza} \cite{stanza}.
 Tokens are then further processed by removing stopwords and punctuation.
-After tokenization, two additional columns are added: one reporting the final number of tokens per tweet and another counting the occurrence of bad words, if any.
-The bad words were identified using a list of 500 Italian bad words retrieved from GitHub\footnote{\url{https://github.com/napolux/paroleitaliane/tree/master/paroleitaliane}}.
+After tokenization, two additional columns are added: one reporting the final number of tokens per tweet and another counting the occurrence of bad words, if any, from the list of 500 Italian bad words.
 
 Once the tokenized version of the tweets was prepared, we lemmatized the tokens to ensure higher consistency and reduce the number of final n-grams. Given the brevity of tweets, we limited the n-grams to unigrams and bigrams.
 
