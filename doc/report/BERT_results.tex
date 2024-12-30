@@ -4,6 +4,7 @@ To fine-tune our two pre-trained BERT models, Italian BERT and AlBERTo, we carri
 
 \begin{table}[h]
     \centering
+    \small
     \begin{tabular}{lcccc}
         \toprule
         & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Support} \\
@@ -22,6 +23,7 @@ To fine-tune our two pre-trained BERT models, Italian BERT and AlBERTo, we carri
 
 \begin{table}[h]
     \centering
+    \small
     \begin{tabular}{lcccc}
         \toprule
         & \textbf{precision} & \textbf{recall} & \textbf{f1-score} & \textbf{support} \\
@@ -41,17 +43,18 @@ To fine-tune our two pre-trained BERT models, Italian BERT and AlBERTo, we carri
 % Requires: \usepackage{graphicx}
 \begin{table}[h]
     \centering
+    \small
     \begin{tabular}{lcccc}
-        \hline
+        \toprule
         & \textbf{precision} & \textbf{recall} & \textbf{f1-score} & \textbf{support} \\
-        \hline
+        \midrule
         0 & 0.7805 & 0.7379 & 0.7586 & 641 \\
         1 & 0.7443 & 0.7862 & 0.7647 & 622 \\
-        \hline
+        \midrule
         \textbf{accuracy} & & & 0.7617 & 1263 \\
         \textbf{macro avg} & 0.7624 & 0.7620 & 0.7616 & 1263 \\
         \textbf{weighted avg} & 0.7627 & 0.7617 & 0.7616 & 1263 \\
-        \hline
+        \bottomrule
     \end{tabular}
     \caption{AlBERTo classification report for Tweets.}
     \label{tab:classification_report_alberto_tweets}
@@ -60,6 +63,7 @@ To fine-tune our two pre-trained BERT models, Italian BERT and AlBERTo, we carri
 % Requires: \usepackage{booktabs}
 \begin{table}[h]
     \centering
+    \small
     \begin{tabular}{lcccc}
         \toprule
                      & \textbf{precision} & \textbf{recall} & \textbf{f1-score} & \textbf{support} \\
