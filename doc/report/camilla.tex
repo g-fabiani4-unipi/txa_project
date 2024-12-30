@@ -8,7 +8,6 @@ In order to do so, we loaded the embeddings and our preprocessed and annotated t
 Using a 5-fold cross-validation process and comparing the resulting macro-averaged F1 score, we determined the best performing model to be the one representing each tweet with the average of all its word embeddings. It performed better than using the aggregation of only lexically-full tokens (nouns, verbs and adjectives), both by mean and by concatenation of the mean vectors for the three aforementioned grammatical categories.
 
 \begin{table}
-\caption{SVM classifiers based on different word embeddings aggregations (5-fold cross-validation).}
     \begin{tabular}{rlr}
         \toprule
         & \textsc{Features} & \textsc{Macro F1} \\
@@ -18,6 +17,7 @@ Using a 5-fold cross-validation process and comparing the resulting macro-averag
         3 & Concat. of mean vects (N, V, Adj) & 0.717 \\
         \bottomrule
     \end{tabular}
+    \caption{SVM classifiers based on different word embeddings aggregations (5-fold cross-validation).}
     \label{tbl:svm_f1_static_embs_aggregations}
 \end{table}
 
@@ -36,7 +36,7 @@ For both models, we tested two methods of \textit{pooling} the tokens' embedding
 The Italian BERT yielded worse performances, which can be explained by the fact that it is a general model that has not been trained for this specific domain. AlBERTo, on the other hand, provided better results, with the SVM model based on its mean pooled embeddings having the highest mean macro F1 score.
     
 \begin{table}
-\caption{Mean macro F1 score of SVM classifiers based on different contextual embeddings' poolings (5-fold cross-validation).}
+\centering
     \begin{tabular}{lrr}
         \toprule
         & \textsc{[CLS]} & \textsc{Mean Pooling} \\
@@ -45,12 +45,14 @@ The Italian BERT yielded worse performances, which can be explained by the fact 
         AlBERTo & 0.741 & 0.747 \\
         \bottomrule
     \end{tabular}
+    \caption{Mean macro F1 score of SVM classifiers based on different contextual embeddings' poolings (5-fold cross-validation).}
     \label{tbl:svm_f1_contextual_embs_pooling}
 \end{table}
 
 Once we decreed our best performing model, we proceeded to test it on our two test sets, bearing in mind that it is a relatively simple model, using only the text itself as a feature.
 
 \begin{table}[h]
+    \small
     \centering
     \begin{tabular}{lcccc}
         \toprule
@@ -69,6 +71,7 @@ Once we decreed our best performing model, we proceeded to test it on our two te
 \end{table}
 
 \begin{table}[h]
+    \small
     \centering
     \begin{tabular}{lcccc}
         \toprule
