@@ -1,7 +1,8 @@
 \subsection{Ngrams extraction and modelling}
 
 In this section, we describe the process used to extract n-grams from tweets to exploit them as features.
-The process begins with a pre-processing step applied to the raw training dataset, implemented through the \texttt{clean\_df function}, which consists of three inner functions.The first inner function, \texttt{count\_uppercase}, calculates the number of uppercase characters in the dataset.
+
+The process begins with a pre-processing step applied to the raw training dataset, implemented through the \texttt{clean\_df function}, which consists of three inner functions. The first inner function, \texttt{count\_uppercase}, calculates the number of uppercase characters in the dataset.
 When we considered the stylistic features, we successfully replaced this simple counter with a function that computes the ratio between uppercase and lowercase characters.
 
 Additionally, we defined a custom punctuation set that extends the standard \texttt{string.punctuation} by including special characters encountered in tweets. After applying this function, the dataset includes the original columns, text and hs, along with a new column,\texttt{ uppercase\_count}.
@@ -12,16 +13,16 @@ An additional condition was added to handle words longer than 10 characters, alt
 However, given the rarity of such words in the dataset, this approach is effective for identifying incorrectly joined words.
 At this stage, the dataset includes a new column, \texttt{text\_processed}.
 
-Subsequently, all text is converted to lowercase, mentions, URLs, and numbers are removed, and the tweets are tokenized using \emph{Stanza} \cite{stanza}.
-Tokens are then further processed by removing stopwords and punctuation.
-After tokenization, two additional columns are added: one reporting the final number of tokens per tweet and another counting the occurrence of bad words, if any, from the list of 500 Italian badwords.
+Subsequently, all text was converted to lowercase, mentions, URLs, and numbers were removed, and the tweets were tokenized using \emph{Stanza} \cite{stanza}.
+Tokens were then further processed by removing stopwords and punctuation.
+After tokenization, two additional columns were added: one reporting the final number of tokens per tweet and another counting the occurrence of bad words, if any, from the list of 500 Italian badwords.
 
 Once the tokenized version of the tweets was prepared, we lemmatized the tokens to ensure higher consistency and reduce the number of final n-grams.
 Given the brevity of tweets, we limited the n-grams to unigrams and bigrams.
 
 The final dataset consisted of 6837 rows and 6407 features, including the original tweet, tokenized version, lemmatized version, the number of uppercase characters, the count of bad words, and extracted unigrams and bigrams. Before extracting additional features and embeddings, we conducted initial experiments by training models directly on this dataset.
-Several models were tested, including Random Forest, SVM, XGBoost, and Logistic Regression using as features only n-grams and badword counts. After applying random search for hyperparameter tuning, the best performance was achieved with Logistic Regression, yielding a macro average F1 score of 0.743.
-In this step we didn’t use the Select KBest for selecting the best k features because otherwise the model couldn’t be used properly on the test, so we used all the features.
+Several models were tested, including Random Forest, SVM, XGBoost, and Logistic Regression using as features only n-grams and badword counts. After applying Random Search for hyperparameter tuning, the best performance was achieved with Logistic Regression, yielding a macro average F1 score of 0.743.
+In this step, we did not use SelectKBest to select the top \textit{k} features, as this would have prevented the model from being properly applied to the test data. Instead, we used all the features.
 
 The same preprocessing steps used for the training set were applied to both test sets: one containing tweets and the other containing 500 headlines from Italian newspapers. To ensure consistency between the test datasets and the training set, we used the dictionary, the Bigram model, and the TF-IDF model fitted on the training set.
-As a result, the final test datasets have the same number of features as the training set. This ensures that the model trained on the training dataset can be correctly applied to the test set. Specifically, if an n-gram is present in both the training and test sets, the corresponding column will report non-zero values; otherwise, the column will consist entirely of zeros. Additionally, by using the same TF-IDF model for both training and testing, the weight of each n-gram remains consistent.
+As a result, the final test datasets have the same number of features as the training set, allowing the model trained on the training dataset to be correctly applied to the test data. Specifically, if an n-gram appears in both the training and test sets, the corresponding column will report non-zero values; otherwise, the column will consist entirely of zeros. Moreover, using the same TF-IDF model for both training and testing ensures that the weight of each n-gram remains consistent.
