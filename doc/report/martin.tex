@@ -1,6 +1,5 @@
 \subsection{Handling Emoji}
 
-\subsubsection{Introduction}
 Analyzing emoji in Italian tweets is essential for understanding expressiveness, sentiments, and the main topics shared online. Emoji represent a unique form of communication that complements textual language with visual symbols to convey emotions, emphasis, and cultural context. Our objectives are therefore to:
 \begin{itemize}
     \item Identify emoji usage patterns in Italian tweets.
@@ -10,7 +9,7 @@ Analyzing emoji in Italian tweets is essential for understanding expressiveness,
 \end{itemize}
 
 \subsubsection{Dataset and Preprocessing}
-To ensure the quality of the analysis, the dataset was pre-processed:
+To ensure the quality of the analysis, the dataset was pre-processed using the following steps:
 \begin{enumerate}
     \item \textbf{Removal of superfluous elements}: Mentions (\texttt{@user}), URLs, hashtags, and non-decodable characters were removed.
     \item \textbf{Text normalization}: All text was converted to lowercase, and redundant spaces were removed.
@@ -19,7 +18,7 @@ To ensure the quality of the analysis, the dataset was pre-processed:
 \end{enumerate}
 
 \subsubsection{Extraction and Analysis}
-We performed two different extractions—one for emoticons and one for emoji. For the former, it was necessary to set a pattern to identify them; for the latter, it was carried out via tokenization and recognition patterns provided by the \texttt{emoji} library. The following analyses were conducted:
+We performed two different extractions — one for emoticons and another for emoji. The former required designing a pattern to identify them, while the latter was handled through tokenization and recognition patterns provided by the \texttt{emoji} library. The following analyses were conducted:
 \begin{itemize}
     \item \textbf{Emoji counting}: Calculation of the frequency of each emoji in the dataset.
     \item \textbf{Meaning mapping}: Linking emoji to their descriptive names and semantic meanings.
@@ -38,22 +37,22 @@ The main visualizations developed include:
     \caption{Distribution of the most frequent emoji in tweets.}
     \label{fig:emoji_frequenze}
 \end{figure}
-As we can see from the bar chart, the most frequently used emoji is the enraged face. This chart is very helpful in understanding the trend among the tweets under analysis. As expected, the most prominent sentiment is anger. Subsequent results are also significant, showing the laughing face and then the “IT” pair of emoji. When combined, these emoji might suggest the prevalence of sarcasm, anger, and blame directed toward the state.
+As we can see from the bar chart, the most frequently used emoji is the enraged face. This visualization provides valuable insight into the trends among the tweets under analysis. As expected, the most prominent sentiment is anger. Subsequent results are also significant, showing the laughing face and then the “IT” pair of emoji. When combined, these emoji might suggest the prevalence of sarcasm, anger, and blame directed toward the government.
 
 \subsubsection{TF-IDF for Emoji and Emoticon Analysis}
-One of the key techniques applied was the use of TF-IDF (Term Frequency–Inverse Document Frequency) to analyze the meaning and importance of both emoji and emoticons in relation to the textual content of the tweets. The process was structured as follows:
+One key technique was the use of TF-IDF (Term Frequency–Inverse Document Frequency) to analyze the meaning and importance of both emoji and emoticons in relation to the textual content of the tweets. The process was structured as follows:
 \begin{enumerate}
     \item \textbf{Text tokenization}: Each tweet was divided into tokens, including both emoji and emoticons.
     \item \textbf{Generation of n-grams}: For each emoji-emoticon, n-grams (from 1-gram to 5-gram) were generated to analyze combined usage patterns.
     \item \textbf{Frequency calculation}: The relative frequency (TF) of each n-gram was calculated within each tweet.
     \item \textbf{Inverse weighting calculation}: The relative importance of each n-gram in the corpus was calculated, penalizing those present in all tweets (IDF).
-    \item \textbf{Vectorization}: Each tweet was represented as a TF-IDF vector, where each dimension corresponds to an n-gram.
+    \item \textbf{Vectorization}: Each tweet was represented as a TF-IDF vector, with each dimension corresponding to an n-gram.
     \item \textbf{Parameter optimization}: The optimal value of \textit{n} (the length of the n-grams) was chosen based on total frequency.
 \end{enumerate}
-Implementing TF-IDF made it possible to distinguish generic symbols with common meanings from those that are more specific and characterize particular themes or emotions.
+Implementing TF-IDF made it possible to distinguish generic symbols with common meanings from those that are more specific and reflective of particular themes or emotions.
 
 \subsubsection{Results of the TF-IDF Analysis}
-Applying TF-IDF highlighted the following main n-grams with their corresponding TF-IDF values:
+Applying TF-IDF highlighted the following main n-grams with their corresponding TF-IDF values (cf. Table \ref{tab:tfidf_results}).
 
 \begin{table}[!h]
     \centering
@@ -83,7 +82,7 @@ A comparison of the emoji used in tweets with and without hate speech was carrie
     \item \textbf{Tweets with Hate Speech (HS)}: Includes tweets where \texttt{hs} $= 1$.
     \item \textbf{Tweets without Hate Speech (NHS)}: Includes tweets where \texttt{hs} $= 0$.
 \end{itemize}
-Emoji frequencies were represented graphically for each group:
+Emoji frequencies were represented graphically for each group (cf. Figure \ref{fig:hs_emoji}).
 
 \begin{figure}
     \includegraphics[width=\columnwidth]{../../results/images/emoji_top10_hs.png}
@@ -116,4 +115,4 @@ Clustering was performed to categorize tweets based on emoji and emoticons. The 
 
 Figure~\ref{fig:3d_clustering} shows the cluster distribution in a three-dimensional space based on the computed principal components.
 
-The results show that emoji are not easily clusterable. Even though the optimal \( k \) found is 4, we end up with only 3 actual clusters. This is due to the nature of the available data. The division seems to be on the vertical layer and, based on the trend of the obtained data, we can hypothesize that the blue cluster contains emojis with negative sentiment, the yellow cluster contains those with positive sentiment, and the magenta cluster comprises neutral emoji used in tweets featuring hate speech. These are hypotheses since we are not able to derive more relevant information.
+The results show that emoji are not easily clusterable. Even though the optimal \( k \) found is 4, we end up with only 3 actual clusters. This is due to the nature of the available data. The division seems to be on the vertical layer and, based on the trend of the obtained data, we can hypothesize that the blue cluster contains emoji with negative sentiment, the yellow cluster contains those with positive sentiment, and the magenta cluster comprises neutral emoji used in tweets featuring hate speech. These are merely hypotheses, since we are not able to derive more relevant information.
