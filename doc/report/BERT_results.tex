@@ -1,0 +1,82 @@
+\subsection{BERT}
+\label{subsec:BERT_results}
+To fine-tune our two pre-trained BERT models, Italian BERT and AlBERTo, we carried out the steps described in \ref{subsec:BERT_methods}. We then proceeded to test both models against our two test sets. The final classification reports are presented in Tables \ref{tab:classification_report_bert_base_tweets},\ref{tab:classification_report_bert_base_news},\ref{tab:classification_report_alberto_tweets} and \ref{tab:classification_report_alberto_news}, while the confusion matrices are shown in Figures \ref{},\ref{},\ref{} and \ref{}.
+
+\begin{table}[h]
+    \centering
+    \small
+    \begin{tabular}{lcccc}
+        \toprule
+        & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Support} \\
+        \midrule
+        0 & 0.7796 & 0.7613 & 0.7703 & 641 \\
+        1 & 0.7598 & 0.7781 & 0.7689 & 622 \\
+        \midrule
+        \textbf{Accuracy} & & & 0.7696 & 1263 \\
+        \textbf{Macro Avg} & 0.7697 & 0.7697 & 0.7696 & 1263 \\
+        \textbf{Weighted Avg} & 0.7698 & 0.7696 & 0.7696 & 1263 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Italian BERT classification report for Tweets.}
+    \label{tab:classification_report_bert_base_tweets}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \small
+    \begin{tabular}{lcccc}
+        \toprule
+        & \textbf{precision} & \textbf{recall} & \textbf{f1-score} & \textbf{support} \\
+        \midrule
+        0 & 0.7290 & 0.9530 & 0.8261 & 319 \\
+        1 & 0.8193 & 0.3757 & 0.5152 & 181 \\
+        \midrule
+        \textbf{accuracy} & & & 0.7440 & 500 \\
+        \textbf{macro avg} & 0.7741 & 0.6643 & 0.6706 & 500 \\
+        \textbf{weighted avg} & 0.7617 & 0.7440 & 0.7135 & 500 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Italian BERT classification report for News Headlines.}
+    \label{tab:classification_report_bert_base_news}
+\end{table}
+
+% Requires: \usepackage{graphicx}
+\begin{table}[h]
+    \centering
+    \small
+    \begin{tabular}{lcccc}
+        \toprule
+        & \textbf{precision} & \textbf{recall} & \textbf{f1-score} & \textbf{support} \\
+        \midrule
+        0 & 0.7805 & 0.7379 & 0.7586 & 641 \\
+        1 & 0.7443 & 0.7862 & 0.7647 & 622 \\
+        \midrule
+        \textbf{accuracy} & & & 0.7617 & 1263 \\
+        \textbf{macro avg} & 0.7624 & 0.7620 & 0.7616 & 1263 \\
+        \textbf{weighted avg} & 0.7627 & 0.7617 & 0.7616 & 1263 \\
+        \bottomrule
+    \end{tabular}
+    \caption{AlBERTo classification report for Tweets.}
+    \label{tab:classification_report_alberto_tweets}
+\end{table}
+
+% Requires: \usepackage{booktabs}
+\begin{table}[h]
+    \centering
+    \small
+    \begin{tabular}{lcccc}
+        \toprule
+                     & \textbf{precision} & \textbf{recall} & \textbf{f1-score} & \textbf{support} \\
+        \midrule
+        \textbf{0}          & 0.7423  & 0.9028 & 0.8147  & 319 \\
+        \textbf{1}          & 0.7232  & 0.4475 & 0.5529  & 181 \\
+        \midrule
+        \textbf{accuracy}   &         &        & 0.7380  & 500 \\
+        \textbf{macro avg}  & 0.7327  & 0.6752 & 0.6838  & 500 \\
+        \textbf{weighted avg} & 0.7354  & 0.7380 & 0.7199  & 500 \\
+        \bottomrule
+    \end{tabular}
+    \caption{AlBERTo classification report for News headlines.}
+    \label{tab:classification_report_alberto_news}
+\end{table}
+

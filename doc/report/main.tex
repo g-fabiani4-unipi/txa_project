@@ -4,6 +4,7 @@
 \usepackage{arsclassica}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{array}
 
 \usepackage{geometry}
 \geometry{top=1cm,bottom=1.5cm,left=2.5cm,right=2.5cm,includehead,includefoot}
@@ -96,6 +97,7 @@ Finally we used two resources for indentifying offensive words: a lexicon of 500
 \input{camilla}
 \input{martin}
 \input{emanuele}
+\input{BERT_methods}
 
 \section{Results}
 
@@ -130,7 +132,7 @@ Table \ref{tab:models_performance} reports the performance of tested models in t
 
 Our Logistic Regression achieved a macro-average F1 score of 0.4004 on the tweets dataset and 0.5093 on the headlines dataset. In both cases, the low F1 score can be attributed to the low recall for class 1.
 
-The results obtained from only the n-grams were poor and the apparently better performance on the headlines dataset is probably due to the fact that the classes are better balanced in this dataset. 
+The results obtained from only the n-grams were poor and the apparently better performance on the headlines dataset is probably due to the fact that the classes are better balanced in this dataset.
 
 \subsection{Linear SVC with AlBERTo sentence embeddings}
 
@@ -175,6 +177,7 @@ The macro F1 drops from 0.747 observed in validation to 0.729 for the in-domain 
 
 As expected, the performance drop is more significant for the out-of-domain task, with a macro F1 of 0.659. The model performs worse for class 1, especially with respect to F1 and recall, which means that it struggles with detecting hate speech in news headlines.
 
+\input{BERT_results}
 \section{Discussion}
 \section{Conclusion}
 

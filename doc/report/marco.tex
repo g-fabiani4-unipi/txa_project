@@ -25,5 +25,3 @@ In this step we didn’t use the Select KBest for selecting the best k features 
 
 The same preprocessing steps used for the training set were applied to both test sets: one containing tweets and the other containing 500 headlines from Italian newspapers. To ensure consistency between the test datasets and the training set, we used the dictionary, the Bigram model, and the TF-IDF model fitted on the training set.
 As a result, the final test datasets have the same number of features as the training set. This ensures that the model trained on the training dataset can be correctly applied to the test set. Specifically, if an n-gram is present in both the training and test sets, the corresponding column will report non-zero values; otherwise, the column will consist entirely of zeros. Additionally, by using the same TF-IDF model for both training and testing, the weight of each n-gram remains consistent.
-
-SPOSTA IN RESULTS
