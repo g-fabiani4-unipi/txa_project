@@ -1,4 +1,5 @@
 \subsection{Embeddings}
+\label{subsec:Embeddings}
 Among the approaches we decided to implement, we opted for an SVM classifier trained using embeddings-based textual representations. 
 
 We first tested three different representations based on the same lexicon of  precomputed static word embeddings, the Italian Twitter Embeddings \cite{italian_twitter_embeddings} by the ItaliaNLP Lab, differing by method of aggregation. 
@@ -21,7 +22,7 @@ Using a 5-fold cross-validation process and comparing the resulting macro-averag
     \label{tbl:svm_f1_static_embs_aggregations}
 \end{table}
 
-We then followed the same methodology to test representations based on contextual embeddings extracted from two different Italian pre-trained BERT models.
+We then followed the same methodology to test representations based on contextual embeddings extracted from two different Italian pre-trained BERT models. \footnote{\textbf{BERT} (Bidirectional Encoder Representations from Transformers) is a bidirectional Large Language Model (LLM) based on an encoder-only transformer architecture. This Deep Learning model was presented by Google in 2018.}
 \begin{enumerate}
     \item \textbf{dbmdz/bert-base-italian-cased} or (\textbf{Italian BERT}) \cite{italian_bert}:  trained on a corpus consisting of a Wikipedia dump and texts from the OPUS corpora collection, for a total of 2,050,057,573 tokens.
     \item \texttt{\textbf{m\_polignano\_uniba/bert\_uncased\_L{-}12\_H{-}\allowbreak768\_A{-}12\_italian\_alb3rt0}} (or \textbf{AlBERTo}) \cite{alberto}:  the first Italian BERT model for Twitter language understanding, trained on Italian tweets.
