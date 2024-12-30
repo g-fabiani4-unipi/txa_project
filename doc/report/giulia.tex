@@ -10,9 +10,9 @@ We automatically annotated the documents using a \emph{Stanza} \cite{stanza} pip
 Before this step we preprocessed the text in order to remove mentions, urls and normalize the punctuation: in particular sequences of multiple full stops were reduced to one full stop, since they were creating issues with the sentence tokenization.
 As for hashtags, since often single words hashtags are integrated in the syntax of the sentence we decided to remove only the hash mark and preserve the textual part of the hashtags.
 
-Our choice of using Stanza was predicated on the possibility of using a combined model based on several different treebanks for the Italian language.
+Our choice of using \emph{Stanza} was predicated on the possibility of using a combined model based on several different treebanks for the Italian language.
 This allowed us to get a better coverage of the language, which is particularly important when working on a non standard variety like tweets or in general computer mediated writing.
-In particular, the combined model is based on four treebanks ISDT, VIT, PoSTWITA and TWITTIRO: the latter two were developed specifically for the annotation of tweets.
+In particular, the combined model is based on four treebanks: ISDT, VIT, PoSTWITA and TWITTIRO; the latter two were developed specifically for the annotation of tweets.
 
 \subsection{Linguistic profiling}
 With the objective of identifying, if possible, stylistic features useful for hate speech detection, we developed 91 different features for the linguistic profiling of the text belonging to five different categories:
@@ -36,7 +36,7 @@ Figure \ref{fig:style} shows the distributions of several linguistic profiling f
 Although the distributions are overlapping, it is possible to discern clear trends that confirm the results of the feature importance analysis.
 
 As we have seen, tweets and newspapers' headlines differ significantly in terms of stylistic features.
-Therefore whichever stylistic features may prove useful for the detection of hate speech in tweets, they are unlikely to yield good results on such a different textual domain.
+Therefore, whichever stylistic features may prove useful for the detection of hate speech in tweets are unlikely to yield good results on such a different textual domain.
 
 \begin{figure}
     \includegraphics[width=\columnwidth]{../../results/images/style.png}
