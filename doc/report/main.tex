@@ -118,7 +118,7 @@ Table \ref{tab:models_performance} reports the performance of tested models in t
         AlBERTo fine-tuned & 0.7616 & 0.6838\\
         LGB & 0.7463 & 0.6656\\
         LGB w/o style & 0.7298 & 0.6709\\
-        SVC AlBERTo embeddings & 0.729 & 0.659\\
+        SVC AlBERTo embeddings & 0.7242 & 0.6674\\
         \textbf{Baseline\_SVC} & 0.7212 & 0.621\\
         Logistic Regression Ngrams & 0.4004 & 0.5093\\
         \textbf{Baseline\_MFC} & 0.3366 & 0.3894\\
@@ -183,9 +183,18 @@ The model trained on all features obtained a macro F1 of 0.7463 for the in-domai
 As expected, excluding the linguistic profiling features yielded a better performance for the cross-domain task (0.6709), but lowered significantly the macro F1 in the in-domain task (0.7298).
 
 \input{BERT_results}
+
 \section{Discussion}
+\input{discussion}
 
 \section{Conclusion}
+We created and tested several classifiers for the detection of hate speech in Italian tweets.
+We experimented different representations of the documents, developing several different features concerning formal properties of the documents (linguistic profiling features), presence of bad or offensive words, and semantic features, either explicit and relatively interpretable (n-grams) or implicit (embeddings).
+We also experimented with different models and fine-tuned two pre-trained transformers.
+
+We took on the challenge of generalizing our findings across textual domains, testing our models trained on tweets against newspaper headlines and gained precious insight into the problems associated with this transfer.
+
+We were able to clear both baselines provided by the organizers of the Evalita2020 task and obtained results comparable to those of the groups that originally participated in the task both in the in-domain task and in the cross-domain one.
 
 \printbibliography{}
 
