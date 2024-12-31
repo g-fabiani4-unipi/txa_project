@@ -4,16 +4,16 @@ Crucially, the recall of the positive class was unsatisfactory: this means that 
 Even the best performing model in this respect (the linear SVC trained on AlBERTo sentence embeddings) was able to detect hate speech in less than half of the cases.
 
 Among all the features we developed, semantic information as modeled by sentence embeddings proved to be the most effective in the detection of hate speech.
-Even so, some more interpretable features also emerged, like for example the count of bad words and the offensiveness score of documents, some unigrams like 'rom' and 'terrorismo' and the distribution of all uppercase words, which is commonly associated with expressions of rage.
+Even so, some more interpretable features also emerged, e.g. the count of bad words and the offensiveness score of documents, some unigrams like 'rom' and 'terrorismo', and the distribution of all uppercase words, which is commonly associated with expressions of rage.
 
-Another notable, but less obvious, stylistic feature, was the number of urls, which was strongly associated with the negative class.
+Another notable, even if less obvious, stylistic feature, was the number of urls, which was strongly associated with the negative class.
 We hypothesize that urls occur more frequently as links to articles in tweets reporting news from newspapers, and that such tweets are normally more objective and less prone to hateful rethoric.
 An in-depth investigation in the composition of a subset of our tweets dataset by Comandini and Patti \cite{comandini_nominal_utterances} revealed that one third of the corpus was composed by references to newspaper's articles.
 More exactly, news accounted for more than half (51\%) of the non hateful tweets, while the hateful messages were mostly comments from single users (88.29\%). These finding corroborate our hypothesis.
 
 It is also possible that the prominence of news in non hateful tweets in our training set hindered the detection of hateful headlines in the news dataset.
 
-We were also able to confirm the observation by Comandini and Patti that nominal sentences, even though they convey a significant part of hate speech, are not in any way more frequent in hateful tweets.
-As a matter of fact, the distribution of nominal sentences was not a strong predictor of hate speech.
+We were also able to confirm the observation by Comandini and Patti that nominal sentences, despite conveying a significant part of hate speech, are not in any way more frequent in hateful tweets.
+In fact, the distribution of nominal sentences was not a strong predictor of hate speech.
 
-Finally even though we ultimately decided against including them in any classifier, analyzing emojis has provided us with a unique perspective on emotional expressions in immigration-related topics. The most frequent emoji revealed a focus on negative emotions.
+Finally, even though we ultimately decided against including them in any classifier, analyzing emojis offered valuable insights on emotional expressions in immigration-related topics. The most frequent emoji revealed a focus on negative emotions.
