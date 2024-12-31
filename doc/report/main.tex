@@ -40,7 +40,7 @@ Moreover, such systems should prove valuable for providing the data that is stil
 The goal of this project is to identify characteristics in the text which allow for the detection of Italian tweets containing hate speech (this category is meant to include expressions of racism, xenophobia and terrorist propaganda).
 So, we can define this task as a binary classification.
 
-A secondary goal was to evaluate how insights obtained by our model can generalize across textual domains. In order to do that, tested our models, trained exclusively on tweets, against Italian newspaper headlines.
+A secondary goal is to evaluate how insights obtained by our model can generalize across textual domains. In order to do that, we tested our models, trained exclusively on tweets, against Italian newspaper headlines.
 
 The project is based on the main task of the HaSpeeDe 2 shared task presented at EVALITA2020 \cite{haspeede2}.
 
@@ -81,7 +81,7 @@ The data sets are available in TSV format and contain three features for each re
 As part of the preprocessing performed by the organizers of the task, mentions and URLs recurring in the original documents were replaced with \texttt{@user} and \texttt{URL} placeholders.
 
 In order to model the semantic properties of the documents, we used the Italian Twitter embeddings \cite{italian_twitter_embeddings} lexicon computed by ItaliaNLP Lab on a corpus of 50,000,000 tweets using the word2vec\footnote{\url{http://code.google.com/p/word2vec/}} toolkit.
-This lexicon consists of embeddings of 128 features for 1,188,949 tokens that were computed with the CBOW model with a symmetric context window of 5 tokens.
+This lexicon consists of embeddings with 128 dimensions for 1,188,949 tokens that were computed with the CBOW model with a symmetric context window of 5 tokens.
 
 The embeddings were made available\footnote{\url{http://www.italianlp.it/download-italian-twitter-embeddings/}} by the ItaliaNLP Lab as a SQLite database containing a single table \texttt{store} with 130 columns:
 \begin{itemize}
@@ -90,7 +90,7 @@ The embeddings were made available\footnote{\url{http://www.italianlp.it/downloa
     \item \texttt{ranking} storing the frequency rank of the token.
 \end{itemize}
 
-Finally we used two resources for indentifying offensive words: a lexicon of 500 bad words for the Italian language made available on GitHub\footnote{\url{https://github.com/napolux/paroleitaliane/tree/master/paroleitaliane}} and the Italian section of the Revised HurtLex lexicon \cite{hurtlex} consisting in 7920 words. In the Revised HurtLex lexicon, each headword is annotated with an offensiveness level score derived from ratings provided by a large number of annotators. This resource was made available from the authors in TSV format\footnote{\url{https://github.com/valeriobasile/hurtlex/blob/master/revised_hurtlex/IT/revised_hurtlex.tsv}} and was revised by us in order to solve some data quality issues.
+Finally, we used two resources for identifying offensive words: a lexicon of 500 bad words for the Italian language made available on GitHub\footnote{\url{https://github.com/napolux/paroleitaliane/tree/master/paroleitaliane}} and the Italian section of the Revised HurtLex lexicon \cite{hurtlex} consisting of 7920 words. In the Revised HurtLex lexicon, each headword is annotated with an offensiveness level score derived from ratings provided by a large number of annotators. This resource was made available by the authors in TSV format\footnote{\url{https://github.com/valeriobasile/hurtlex/blob/master/revised_hurtlex/IT/revised_hurtlex.tsv}} and was revised by us in order to solve some data quality issues.
 
 \input{giulia}
 \input{marco}
@@ -101,7 +101,7 @@ Finally we used two resources for indentifying offensive words: a lexicon of 500
 
 \section{Results}
 
-Table \ref{tab:models_performance} reports the performance of tested models in terms of Macro-F1, comparing them to two baselines provided by the organizers of the shared task:
+Table \ref{tab:models_performance} reports the performance of the tested models in terms of Macro-F1, comparing them to two baselines provided by the organizers of the shared task:
 
 \begin{itemize}
     \item A classifier returning the most frequent class (Baseline\_MFC);
@@ -132,7 +132,7 @@ Table \ref{tab:models_performance} reports the performance of tested models in t
 
 Our Logistic Regression achieved a macro-average F1 score of 0.4004 on the tweets dataset and 0.5093 on the headlines dataset. In both cases, the low F1 score can be attributed to the low recall for class 1.
 
-The results obtained from only the n-grams were poor and the apparently better performance on the headlines dataset is probably due to the fact that the classes are better balanced in this dataset.
+The results obtained from only the n-grams were poor. The seemingly better performance on the headlines dataset can likely be attributed to its more balanced class distribution.
 
 \subsection{Linear SVC with AlBERTo sentence embeddings}
 
@@ -176,7 +176,7 @@ Detailed results for both test sets are reported in tables \ref{tab:classificati
 
 The macro F1 drops from 0.7465 observed in validation to 0.7242 for the in-domain task, but all metrics are balanced between the two classes. The model seems to be able to generalize well on tweets and has a stable performance.
 
-As expected, the performance drop is more significant for the out-of-domain task, with a macro F1 of 0.6674. The model performs worse for class 1, especially with respect to F1 and recall, which means that it struggles with detecting hate speech in news headlines.
+As expected, the performance drop is more significant for the out-of-domain task, with a macro F1 of 0.6674. The model performs worse for class 1, especially with respect to recall, which means that it struggles with detecting hate speech in news headlines.
 
 
 \subsection{Light-GBM}
@@ -192,7 +192,7 @@ As expected, excluding the linguistic profiling features yielded a better perfor
 \section{Conclusion}
 We created and tested several classifiers for the detection of hate speech in Italian tweets.
 We experimented different representations of the documents, developing several different features concerning formal properties of the documents (linguistic profiling features), presence of bad or offensive words, and semantic features, either explicit and relatively interpretable (n-grams) or implicit (embeddings).
-We also experimented with different models and fine-tuned two pre-trained transformers.
+We also experimented with different models and fine-tuned two pre-trained Transformer-based models.
 
 We took on the challenge of generalizing our findings across textual domains, testing our models trained on tweets against newspaper headlines and gained precious insight into the problems associated with this transfer.
 
