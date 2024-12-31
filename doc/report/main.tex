@@ -94,8 +94,8 @@ Finally, we used two resources for identifying offensive words: a lexicon of 500
 
 \input{giulia}
 \input{marco}
-\input{camilla}
 \input{martin}
+\input{camilla}
 \input{emanuele}
 \input{BERT_methods}
 
@@ -136,7 +136,7 @@ The results obtained from only the n-grams were poor. The seemingly better perfo
 
 \subsection{Linear SVC with AlBERTo sentence embeddings}
 
-\begin{table}[h]
+\begin{table}
     \small
     \centering
     \begin{tabular}{lccc}
@@ -154,7 +154,7 @@ The results obtained from only the n-grams were poor. The seemingly better perfo
     \label{tab:classification_report_svm_alberto_tweets}
 \end{table}
 
-\begin{table}[h]
+\begin{table}
     \small
     \centering
     \begin{tabular}{lccc}
@@ -171,6 +171,9 @@ The results obtained from only the n-grams were poor. The seemingly better perfo
     \caption{Classification Report on News headlines test set, main metrics.}
     \label{tab:classification_report_svm_alberto_news}
 \end{table}
+
+Detailed results for both test sets are reported in tables \ref{tab:classification_report_svm_alberto_tweets} and \ref{tab:classification_report_svm_alberto_news}.
+
 The macro F1 drops from 0.7465 observed in validation to 0.7242 for the in-domain task, but all metrics are balanced between the two classes. The model seems to be able to generalize well on tweets and has a stable performance.
 
 As expected, the performance drop is more significant for the out-of-domain task, with a macro F1 of 0.6674. The model performs worse for class 1, especially with respect to recall, which means that it struggles with detecting hate speech in news headlines.
