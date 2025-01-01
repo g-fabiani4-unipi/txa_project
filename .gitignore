@@ -446,5 +446,9 @@ ui-tests/.pnp.*
 #  Do not track word embeddings databases
 *.sqlite
 
+# Do not track larger files
+results/merged_ddf.xls
+results/merged_df_train.xls
+
 # Do not track the enviroment
 venv/
